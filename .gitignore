@@ -1,5 +1,53 @@
+# Visual Studio local settings and caches
 .vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.db-shm
+*.VC.db-wal
+*.VC.opendb
+*.sdf
+*.opensdf
+ipch/
+
+# Build output directories
+[Dd]ebug/
+[Rr]elease/
+[Dd]ebugPublic/
 x64/
-bin/
-obj/
-*.vcxproj.user
+x86/
+[Ww]in32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Bb]in/
+[Oo]bj/
+[Bb]uild/
+out/
+
+# C/C++ compiled files and intermediate artifacts
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+*.idb
+*.ipdb
+*.iobj
+*.ilk
+*.pch
+*.res
+*.tlog
+*.lastbuildstate
+*.recipe
+*.manifest.res
+*.log
+
+# Local secrets
+.env
+.env.*
+!.env.example
+!.env.sample
