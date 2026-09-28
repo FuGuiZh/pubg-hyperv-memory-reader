@@ -4,11 +4,15 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{BC8A1FFA-BEE3-4634-8014-F334798102B3}") = "pubg-hyperv-memory-reader", "pubg-hyperv-memory-reader.vcxproj", "{DE8C75BF-6208-42B1-AC62-3D47507F81BA}"
 EndProject
+Project("{BC8A1FFA-BEE3-4634-8014-F334798102B3}") = "dumper", "tools\dumper\dumper.vcxproj", "{DD719FF6-6826-4AF7-BE6F-15342CA99A50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD719FF6-6826-4AF7-BE6F-15342CA99A50}.Release|x64.ActiveCfg = Release|x64
+		{DD719FF6-6826-4AF7-BE6F-15342CA99A50}.Release|x64.Build.0 = Release|x64
 		{DE8C75BF-6208-42B1-AC62-3D47507F81BA}.Release|x64.ActiveCfg = Release|x64
 		{DE8C75BF-6208-42B1-AC62-3D47507F81BA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection

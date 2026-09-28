@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files" />
+    <Filter Include="Header Files" />
+    <Filter Include="Shared" />
+    <Filter Include="Shared\App" />
+    <Filter Include="Shared\Windows" />
+    <Filter Include="Shared\Hypervisor" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dumper.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="pe_dump.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClCompile Include="process_image.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClInclude Include="process_image.hpp"><Filter>Header Files</Filter></ClInclude>
+    <ClCompile Include="output_files.cpp"><Filter>Source Files</Filter></ClCompile>
+    <ClInclude Include="output_files.hpp"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="pe_dump.hpp"><Filter>Header Files</Filter></ClInclude>
+    <ClInclude Include="..\..\src\app\pid_input.hpp"><Filter>Shared\App</Filter></ClInclude>
+    <ClCompile Include="..\..\src\platform\windows\kernel_queries.cpp"><Filter>Shared\Windows</Filter></ClCompile>
+    <ClCompile Include="..\..\src\platform\windows\process_lookup.cpp"><Filter>Shared\Windows</Filter></ClCompile>
+    <ClCompile Include="..\..\src\hypervisor\hypercall.cpp"><Filter>Shared\Hypervisor</Filter></ClCompile>
+    <ClInclude Include="..\..\src\platform\windows\kernel_queries.hpp"><Filter>Shared\Windows</Filter></ClInclude>
+    <ClInclude Include="..\..\src\platform\windows\process_lookup.hpp"><Filter>Shared\Windows</Filter></ClInclude>
+    <ClInclude Include="..\..\src\platform\windows\guest_memory.hpp"><Filter>Shared\Windows</Filter></ClInclude>
+    <ClInclude Include="..\..\src\platform\windows\process_identity.hpp"><Filter>Shared\Windows</Filter></ClInclude>
+    <ClInclude Include="..\..\src\hypervisor\hypercall.hpp"><Filter>Shared\Hypervisor</Filter></ClInclude>
+    <ClInclude Include="..\..\src\hypervisor\protocol.hpp"><Filter>Shared\Hypervisor</Filter></ClInclude>
+    <ClInclude Include="..\..\src\hypervisor\memory_operation.hpp"><Filter>Shared\Hypervisor</Filter></ClInclude>
+    <ClInclude Include="..\..\src\hypervisor\walk_diagnostics.hpp"><Filter>Shared\Hypervisor</Filter></ClInclude>
+    <MASM Include="..\..\src\hypervisor\invoke.asm"><Filter>Shared\Hypervisor</Filter></MASM>
+  </ItemGroup>
+</Project>

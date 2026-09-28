@@ -22,15 +22,21 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <ReaderExecutionLevel Condition="'$(ReaderExecutionLevel)'==''">RequireAdministrator</ReaderExecutionLevel>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(MSBuildProjectDirectory)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(MSBuildProjectDirectory)\obj\$(Platform)\$(Configuration)\$(MSBuildProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -40,7 +46,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <ExceptionHandling>Sync</ExceptionHandling>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -50,11 +59,77 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGenerationObjectFile>$(IntDir)$(TargetName).iobj</LinkTimeCodeGenerationObjectFile>
+      <UACExecutionLevel>$(ReaderExecutionLevel)</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\app\application.cpp" />
+    <ClCompile Include="src\app\run_log.cpp" />
+    <ClCompile Include="src\telemetry\radar_protocol.cpp" />
+    <ClCompile Include="src\telemetry\udp_sender.cpp" />
+    <ClCompile Include="src\telemetry\publisher.cpp" />
+    <ClCompile Include="src\monitor\core.cpp" />
+    <ClCompile Include="src\arch\x64\interpreter.cpp" />
+    <ClCompile Include="src\arch\x64\resolver.cpp" />
+    <ClCompile Include="src\unreal\names.cpp" />
+    <ClCompile Include="src\monitor\collector.cpp" />
+    <ClCompile Include="src\monitor\scene_collector.cpp" />
+    <ClCompile Include="src\monitor\console.cpp" />
+    <ClCompile Include="src\platform\windows\backend.cpp" />
+    <ClCompile Include="src\platform\windows\kernel_queries.cpp" />
+    <ClCompile Include="src\platform\windows\process_lookup.cpp" />
+    <ClCompile Include="src\platform\windows\module_lookup.cpp" />
+    <ClCompile Include="src\hypervisor\hypercall.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\app\capture_health.hpp" />
+    <ClInclude Include="src\app\binding_probe.hpp" />
+    <ClInclude Include="src\telemetry\radar_protocol.hpp" />
+    <ClInclude Include="src\telemetry\udp_sender.hpp" />
+    <ClInclude Include="src\telemetry\publisher.hpp" />
+    <ClInclude Include="src\app\application.hpp" />
+    <ClInclude Include="src\app\pid_input.hpp" />
+    <ClInclude Include="src\app\run_log.hpp" />
+    <ClInclude Include="src\platform\windows\read_diagnostics.hpp" />
+    <ClInclude Include="src\config\settings.hpp" />
+    <ClInclude Include="src\monitor\monitor.hpp" />
+    <ClInclude Include="src\monitor\scene_collector.hpp" />
+    <ClInclude Include="src\arch\x64\interpreter.hpp" />
+    <ClInclude Include="src\arch\x64\resolver.hpp" />
+    <ClInclude Include="src\unreal\names.hpp" />
+    <ClInclude Include="src\unreal\origin.hpp" />
+    <ClInclude Include="src\platform\windows\process_lookup.hpp" />
+    <ClInclude Include="src\platform\windows\module_lookup.hpp" />
+    <ClInclude Include="src\platform\windows\kernel_queries.hpp" />
+    <ClInclude Include="src\platform\windows\guest_memory.hpp" />
+    <ClInclude Include="src\platform\windows\process_identity.hpp" />
+    <ClInclude Include="src\hypervisor\hypercall.hpp" />
+    <ClInclude Include="src\hypervisor\walk_diagnostics.hpp" />
+    <ClInclude Include="src\hypervisor\protocol.hpp" />
+    <ClInclude Include="src\hypervisor\memory_operation.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="protocol\radar.proto" />
+
+
+
+
+
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="src\hypervisor\invoke.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets" />
+  <!-- TargetPath and TargetDir are resolved by Microsoft.Cpp.targets. -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommand>$(TargetPath)</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>$(TargetDir)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
 </Project>

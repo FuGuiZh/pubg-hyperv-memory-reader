@@ -1,7 +1,6 @@
-#include <iostream>
+#include "app/application.hpp"
 
-int main()
+int main(int argc, char* argv[])
 {
-    std::cout << "hello pubg-hyperv-memory-reader\n";
-    return 0;
+    return app::Run(argc, argv);
 }

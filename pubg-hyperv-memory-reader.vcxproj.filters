@@ -1,14 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{A664B5EB-1081-46F1-AC7B-9472DD79CEDD}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx</Extensions>
-    </Filter>
+    <Filter Include="src" />
+    <Filter Include="src\app" />
+    <Filter Include="src\arch" />
+    <Filter Include="src\arch\x64" />
+    <Filter Include="src\monitor" />
+    <Filter Include="src\telemetry" />
+    <Filter Include="src\unreal" />
+    <Filter Include="protocol" />
+    <Filter Include="src\platform" />
+    <Filter Include="src\platform\windows" />
+    <Filter Include="src\hypervisor" />
+    <Filter Include="src\config" />
+
+
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\app\application.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClCompile Include="src\app\run_log.cpp">
+      <Filter>src\app</Filter>
+    </ClCompile>
+    <ClInclude Include="src\app\run_log.hpp">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\binding_probe.hpp">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\read_diagnostics.hpp">
+      <Filter>src\platform\windows</Filter>
+    </ClInclude>
+    <ClCompile Include="src\monitor\core.cpp">
+      <Filter>src\monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\arch\x64\interpreter.cpp">
+      <Filter>src\arch\x64</Filter>
+    </ClCompile>
+    <ClCompile Include="src\arch\x64\resolver.cpp">
+      <Filter>src\arch\x64</Filter>
+    </ClCompile>
+    <ClCompile Include="src\monitor\collector.cpp">
+      <Filter>src\monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\monitor\console.cpp">
+      <Filter>src\monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\backend.cpp">
+      <Filter>src\platform\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\telemetry\radar_protocol.cpp"><Filter>src\telemetry</Filter></ClCompile>
+    <ClCompile Include="src\telemetry\udp_sender.cpp"><Filter>src\telemetry</Filter></ClCompile>
+    <ClCompile Include="src\telemetry\publisher.cpp"><Filter>src\telemetry</Filter></ClCompile>
+    <ClCompile Include="src\monitor\scene_collector.cpp"><Filter>src\monitor</Filter></ClCompile>
+    <ClCompile Include="src\unreal\names.cpp"><Filter>src\unreal</Filter></ClCompile>
+    <ClInclude Include="src\unreal\names.hpp"><Filter>src\unreal</Filter></ClInclude>
+    <ClInclude Include="src\unreal\origin.hpp"><Filter>src\unreal</Filter></ClInclude>
+    <ClInclude Include="src\monitor\scene_collector.hpp"><Filter>src\monitor</Filter></ClInclude>
+    <ClInclude Include="src\telemetry\radar_protocol.hpp"><Filter>src\telemetry</Filter></ClInclude>
+    <ClInclude Include="src\telemetry\udp_sender.hpp"><Filter>src\telemetry</Filter></ClInclude>
+    <ClInclude Include="src\telemetry\publisher.hpp"><Filter>src\telemetry</Filter></ClInclude>
+    <None Include="protocol\radar.proto"><Filter>protocol</Filter></None>
+
+    <ClCompile Include="src\platform\windows\kernel_queries.cpp">
+      <Filter>src\platform\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\process_lookup.cpp">
+      <Filter>src\platform\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform\windows\module_lookup.cpp"><Filter>src\platform\windows</Filter></ClCompile>
+    <ClInclude Include="src\platform\windows\module_lookup.hpp"><Filter>src\platform\windows</Filter></ClInclude>
+    <ClCompile Include="src\hypervisor\hypercall.cpp">
+      <Filter>src\hypervisor</Filter>
+    </ClCompile>
+    <MASM Include="src\hypervisor\invoke.asm">
+      <Filter>src\hypervisor</Filter>
+    </MASM>
+    <ClInclude Include="src\app\capture_health.hpp">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\application.hpp">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\app\pid_input.hpp">
+      <Filter>src\app</Filter>
+    </ClInclude>
+    <ClInclude Include="src\config\settings.hpp">
+      <Filter>src\config</Filter>
+    </ClInclude>
+    <ClInclude Include="src\monitor\monitor.hpp">
+      <Filter>src\monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\arch\x64\interpreter.hpp">
+      <Filter>src\arch\x64</Filter>
+    </ClInclude>
+    <ClInclude Include="src\arch\x64\resolver.hpp">
+      <Filter>src\arch\x64</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\process_lookup.hpp">
+      <Filter>src\platform\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\kernel_queries.hpp">
+      <Filter>src\platform\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\guest_memory.hpp">
+      <Filter>src\platform\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform\windows\process_identity.hpp">
+      <Filter>src\platform\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hypervisor\hypercall.hpp">
+      <Filter>src\hypervisor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hypervisor\walk_diagnostics.hpp">
+      <Filter>src\hypervisor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hypervisor\protocol.hpp">
+      <Filter>src\hypervisor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hypervisor\memory_operation.hpp">
+      <Filter>src\hypervisor</Filter>
+    </ClInclude>
+    <None Include="README.md" />
+
+
+
+
   </ItemGroup>
 </Project>

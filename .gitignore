@@ -17,6 +17,8 @@ ipch/
 [Rr]elease/
 [Dd]ebugPublic/
 x64/
+# The x64 architecture sources are not build output.
+!/src/arch/x64/
 x86/
 [Ww]in32/
 [Aa][Rr][Mm]/
@@ -45,9 +47,33 @@ out/
 *.recipe
 *.manifest.res
 *.log
+logs/
+log-files/
+dump-files/
+dumped-files/
+*.exe.info.txt
+logs-*/
+*.dmp
+*.bin
+*.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
 
 # Local secrets
 .env
 .env.*
 !.env.example
 !.env.sample
+
+# Local research, diagnostics, and development-only material
+/docs/
+/tests/
+/projects/
+/tools/*
+!/tools/dumper/
+/protocol/*
+!/protocol/radar.proto
+/src/arch/x64/README.md
